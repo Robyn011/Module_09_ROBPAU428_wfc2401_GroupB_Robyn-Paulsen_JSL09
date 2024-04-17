@@ -14,6 +14,18 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 		document.getElementById("author").textContent = `By: Dodi Achmad`;
     });
 
+/*
+
+Fetching a Random Nature Photo from Unsplash API section:
+
+The code makes a GET request to the Unsplash API endpoint (https://apis.scrimba.com/unsplash/photos/random) to fetch a random nature photo.
+It specifies query parameters like orientation=landscape and query=nature to ensure the photo is landscape-oriented and related to nature.
+If the request is successful (res.ok), it parses the response as JSON and updates the background image of the webpage's body with the 
+retrieved photo (document.body.style.backgroundImage) and displays the author's name (document.getElementById("author").textContent).
+If there's an error, it catches it and sets a default background image and author.
+
+*/
+
 // Fetch data about Dogecoin from the CoinGecko API and update the crypto section
 fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     .then(res => {
@@ -38,6 +50,17 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     })
     .catch(err => console.error(err));
 
+/*
+
+Fetching Data about Dogecoin from CoinGecko API section:
+
+This section fetches data about Dogecoin from the CoinGecko API endpoint (https://api.coingecko.com/api/v3/coins/dogecoin).
+It checks if the response is okay, and if so, it updates the webpage with the coin's image and name in the top section 
+(document.getElementById("crypto-top").innerHTML) and with price, high, and low data in the crypto section (document.getElementById("crypto").innerHTML).
+If there's an error, it catches it and logs it to the console.
+
+*/
+
 // Function to update the current time every seconds
 function getCurrentTime() {
     const date = new Date();
@@ -47,6 +70,16 @@ function getCurrentTime() {
 
 // Update the current time every seconds
 setInterval(getCurrentTime, 1000);
+
+/*
+
+Updating Current Time:
+
+There's a function defined named getCurrentTime() which retrieves the current time and 
+updates the webpage element with id "time" every second (setInterval(getCurrentTime, 1000)).
+
+*/
+
 
 // Fetch weather data based on user's geolocation and update the weather section
 navigator.geolocation.getCurrentPosition(position => {
@@ -73,3 +106,15 @@ navigator.geolocation.getCurrentPosition(position => {
             console.error(err);
         });
 });
+
+/*
+
+Fetching Weather Data Based on User's Geolocation section:
+
+It utilizes the navigator.geolocation.getCurrentPosition function to get the user's current position.
+Then, it fetches weather data from the OpenWeatherMap API based on the user's latitude and longitude.
+If the request is successful, it constructs the weather icon URL, updates the weather section with temperature and city name, 
+and logs the weather data to the console.
+If there's an error, it updates the weather section with an error message.
+
+*/
